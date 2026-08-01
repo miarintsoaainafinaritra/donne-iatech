@@ -1,0 +1,21 @@
+{
+  "title": "Dashboard Qualite de l'Air",
+  "version": "1.0",
+  "data_file": "clean_data.csv",
+  "cities": ["Antananarivo", "Beijing", "Nairobi", "New Delhi", "Paris"],
+  "pollutants": ["co", "no", "no2", "o3", "so2", "pm2_5", "pm10", "nh3"],
+  "graphs": [
+    {"name": "Evolution AQI", "type": "line"},
+    {"name": "Distribution AQI", "type": "box"},
+    {"name": "Correlation polluants", "type": "heatmap"},
+    {"name": "AQI par heure", "type": "bar"}
+  ],
+  "insights": {
+    "plus_polluee": "Beijing",
+    "plus_polluee_aqi": 4.3,
+    "moins_polluee": "Antananarivo",
+    "moins_polluee_aqi": 1.1,
+    "meilleure_heure": 8,
+    "pire_heure": 15
+  }
+}
