@@ -3,12 +3,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 
-# Creer le dossier images
 os.makedirs('images', exist_ok=True)
 
 df = pd.read_csv('clean_data.csv', parse_dates=['timestamp_utc'])
 
-# 1. Evolution AQI
 plt.figure(figsize=(12, 6))
 for city in df['city_name'].unique():
     city_data = df[df['city_name'] == city]
@@ -22,7 +20,7 @@ plt.savefig('images/evolution_aqi.png', dpi=150)
 plt.close()
 print("✅ evolution_aqi.png")
 
-# 2. Distribution AQI
+
 plt.figure(figsize=(10, 6))
 df.boxplot(column='aqi', by='city_name')
 plt.title('Distribution AQI par ville', fontsize=14)
@@ -32,7 +30,7 @@ plt.savefig('images/distribution_aqi.png', dpi=150)
 plt.close()
 print("✅ distribution_aqi.png")
 
-# 3. Correlation polluants
+
 pollutants = ['co', 'no', 'no2', 'o3', 'so2', 'pm2_5', 'pm10', 'nh3']
 corr = df[pollutants].corr()
 plt.figure(figsize=(10, 8))
@@ -43,7 +41,7 @@ plt.savefig('images/correlation_polluants.png', dpi=150)
 plt.close()
 print("✅ correlation_polluants.png")
 
-# 4. AQI par heure
+
 hourly = df.groupby(df['timestamp_utc'].dt.hour)['aqi'].mean()
 plt.figure(figsize=(10, 6))
 plt.bar(hourly.index, hourly.values, color='steelblue')
@@ -57,7 +55,6 @@ plt.savefig('images/aqi_par_heure.png', dpi=150)
 plt.close()
 print("✅ aqi_par_heure.png")
 
-# 5. Dashboard complet (4 graphiques en 1)
 fig, axes = plt.subplots(2, 2, figsize=(14, 10))
 
 for city in df['city_name'].unique():

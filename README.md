@@ -12,21 +12,21 @@ L'objectif est de nettoyer, analyser et visualiser des données de pollution atm
 
 ## Structure du projet
 
-```text
 dashbord/
-│
 ├── notebook/
 │   └── analysis.ipynb
-│
+├── images/
+│   ├── evolution_aqi.png
+│   ├── distribution_aqi.png
+│   ├── correlation_polluants.png
+│   ├── aqi_par_heure.png
+│   └── dashboard_complet.png
 ├── .env.example
-├── .gitattributes
 ├── .gitignore
 ├── clean_data.csv
-├── config.json
 ├── dashboard.py
 ├── README.md
 └── requirements.txt
-```
 
 ---
 
@@ -37,6 +37,32 @@ Avant de commencer, il faut avoir installé :
 - Python 3.12.3
 - pip
 - Git
+## Pour lancer les notebook:
+ 
+- Il faut installer:
+
+pip install ipykernel
+
+- Installation complete:
+
+pip install ipykernel jupyter pandas matplotlib seaborn plotly dash dash-bootstrap-components
+- Verification:
+
+python -c "import ipykernel; print('OK')"
+
+- Enregistrer le kernel:
+python -m ipykernel install --user
+
+- s'il y a un erreur force :
+* Reinstaller avec force
+pip install --force-reinstall ipykernel
+
+* Enregistrer le kernel
+python -m ipykernel install --user --name=python3 --display-name="Python 3"
+
+- Modifier l'environnement dans les python par:
+
+venv  (3.12.3) (python 3.12.3)
 
 Pour vérifier les versions :
 
@@ -45,8 +71,6 @@ python --version
 pip --version
 git --version
 ```
-
----
 
 ## Installation
 
@@ -128,14 +152,12 @@ Le notebook permet de :
 Démarrer l'application Streamlit :
 
 ```bash
-streamlit run dashboard.py
+python3 dashboard.py
 ```
 
 Le dashboard sera accessible depuis le navigateur à l'adresse :
 
-```text
-http://localhost:8501
-```
+http://127.0.0.1:8050/
 
 ---
 ## Deployer du dashboard

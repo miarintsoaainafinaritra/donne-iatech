@@ -132,10 +132,8 @@ def update(selected_city, selected_pollutant, start_date, end_date):
     
     return line, box, heat, hour, df_f['city_id'].nunique(), (df_f['timestamp_utc'].max() - df_f['timestamp_utc'].min()).days, len(df_f), f"{df_f['aqi'].mean():.1f}"
 
-# Point d'entrée pour Gunicorn (Render)
 server = app.server
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 8050))
     app.run(debug=False, host='0.0.0.0', port=port)
-    
