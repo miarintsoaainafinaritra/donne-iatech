@@ -2,6 +2,7 @@ import pandas as pd
 import plotly.express as px
 import dash
 from dash import dcc, html, Input, Output
+import os
 
 df = pd.read_csv('clean_data.csv', parse_dates=['timestamp_utc'])
 cities = sorted(df['city_name'].unique())
@@ -131,10 +132,9 @@ def update(selected_city, selected_pollutant, start_date, end_date):
     
     return line, box, heat, hour, df_f['city_id'].nunique(), (df_f['timestamp_utc'].max() - df_f['timestamp_utc'].min()).days, len(df_f), f"{df_f['aqi'].mean():.1f}"
 
+# Point d'entrée pour Gunicorn (Render)
+server = app.server
+
 if __name__ == '__main__':
-    import socket
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.bind(('127.0.0.1', 0))
-        port = s.getsockname()[1]
-    print(f"Dashboard sur http://127.0.0.1:{port}")
-    app.run(debug=False, host='127.0.0.1', port=8050)
+    port = int(os.environ.get('PORT', 8050))
+    app.run(debug=False, host='0.0.0.0', port=port)
