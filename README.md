@@ -138,7 +138,9 @@ http://localhost:8501
 ```
 
 ---
-
+## Deployer du dashboard
+  url:https://donne-iatech-2.onrender.com c'est  en ligne besoin de connexion
+  
 ## Données utilisées
 
 Le fichier principal utilisé est :
