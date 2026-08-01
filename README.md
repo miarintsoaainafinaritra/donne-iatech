@@ -323,3 +323,37 @@ Projet IA1 - Databridge
 # Licence
 
 Ce projet est réalisé dans le cadre pédagogique du programme **IA1 - Databridge**.
+
+---
+
+## Installation de Jupyter Notebook
+
+Si Jupyter Notebook n'est pas encore installé sur votre ordinateur, consultez la documentation officielle :
+
+🔗 https://jupyter.org/install
+
+Vous pouvez également l'installer avec **pip** :
+
+```bash
+pip install notebook
+```
+
+Ou installer l'ensemble des outils Jupyter :
+
+```bash
+pip install jupyter
+```
+
+Vérifiez ensuite que l'installation est correcte :
+
+```bash
+jupyter --version
+```
+
+Lancez Jupyter Notebook :
+
+```bash
+jupyter notebook
+```
+
+---
